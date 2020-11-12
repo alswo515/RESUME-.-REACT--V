@@ -1,0 +1,154 @@
+----------------------------state이벤트---------------------------
+리액트에선
+ state = {
+	변수 = 값
+}
+으로 state 배열을 사용할수있다 이걸 JSX 에서 대입하면
+<h1> The number is: {변수}</h1>        
+를 쓰면 h1 태그에 변수에는 state에서 선언한 변수값이 대입된다
+
+변수값을 변화시키는 이벤트또한 줄수있는데 
+<h1> The number is: {변수}</h1>   
+ <button onClick={this.plus}>plus</button>
+
+라는 HTML 이있다는 가정하에 함수를 render() 함수 위에 plus 함수를 다음과같이 선언한다
+	plus  = () =>{
+	this.setState({
+	변수 : 변하는값
+	})
+	}
+setState함수로 plus 버튼을 클릭시 변수값을 변화시킬수있다
+이때 리엑트에서는 변하는값과 변수값이 같다면 아무런 이벤트없이 넘어갈수있는게 특징이다
+
+
+
+예제)
+import React, { Component } from 'react';
+class App extends Component {
+  state = {
+    count :0
+  }
+plus = () =>{
+  this.setState({
+    count : 1
+  })
+}
+minus = () =>{
+  this.setState({
+    count : -1
+  })
+}
+  render() {
+
+    const {count}=this.state;
+
+    return (
+      <div>
+        <h1>
+          The number is: {count}
+        </h1>        
+        <button onClick={this.plus} >Plus</button>
+        <button onClick={this.minus} >Minus</button>
+      </div>
+    );
+  }
+}
+export default App;
+
+결과 >>>>>  count : 1   plus버튼 클릭시 : 1 	minus 버튼 클릭시 :-1
+
+--------------리액트 참고사이트-------------
+https://ko.reactjs.org/     
+
+----------------리액트 API 연동 --------------------
+API 란? 데이터를 받을수있도록 url 형식의 데이터 코드
+리액트에서는 API 를 연동 시킬려면 비동기통신 라이브러리가 필요하다
+axios 라이브러리를 다운해야한다
+터미널에서 cd 폴더명
+	  npm i axios 입력하면 axios 다운로드가 진행된다
+
+-------------------리액트 API 연동 예제-----------------------
+부모컴포넌트
+import React, { Component } from 'react';
+import axios from 'axios';	//axios 예제
+import Movies from './Movies';
+class Section extends Component {
+    state = {
+        movies : []	//초기상태
+    }
+	
+    render() {
+	const {movie} = this.state; 	//데이터를 받는 변수 선언
+        return (
+            <section className="container">
+                <div className="movies">
+                    <Movies key={} id={} year={} title={} summary={} genres={}/>
+                </div>
+            </section>
+        );
+    }
+}
+export default Section;
+
+
+yts 사이트 검색 footer 구역의 api 클릭 list movies 클릭 하면 오픈 api url을사용할수있음
+
+api 데이터를 크롬에서 볼때는 확장프로그램에서 json view 를 설치에서 보면깔끔하게볼수있다
+
+https://yts.mx/api/v2/list_movies.json >>를 가져왓다
+
+리액트에서 비동기방식을 사용할때쓰는 함수
+
+사용자가정의한 함수이름 = async (  ) =>{  
+	 const { data:{ data:{ 사용자 정의한 데이터를 받는변수 } } } = await axios.get("API주소")
+	this.setState({	//사용자 정의한 데이터를 배열로 변환해준다
+		사용자 정의한 데이터를 받는변수 : 사용자 정의한 데이터를 받는변수 
+		})
+	}
+//await 는 데이터가올때까지 기다리라는명령어 axios 는 데이터를받는명령어
+함께 세트로 쓰인다
+
+componentDidMount(){        // render(){  } 함수가 실행한 후에 실행하는 콜백함수 리액트의 내장함수
+	this.사용자가정의한 함수이름()
+}
+
+예제)
+//------------------3차적으로 데이터 비동기화처리와 데이터를 배열로 변환---------
+getMovies = async ( ) =>{
+        const { data:{ data:{ movies } } } = await axios.get("https://yts.mx/api/v2/list_movies.json")
+        this.setState({
+            movies:movies
+        })
+}
+//-----------------2차적으로 render함수 뒤에 수행되는 함수--------
+componentDidMount( ){
+        this.getMovies( )
+    }
+
+//----------1차적으로 실행되는 render 함수 배열값을 제외하고 먼저 실행 ------------
+render(  ) {
+        const {movies} = this.state;
+        return (
+            <section className="container">
+                <div className="movies">
+                    <Movies key={} id={} year={} title={} summary={} genres={}/>
+                </div>
+            </section>
+        );
+    }
+//--------------------마지막으로   <Movies />를 받은 배열형식으로 받은 데이터를 랜더링한다-------------------
+
+
+
+----------------------movies로 scss로 스타일 잡기 -----------------
+container 의 넓이 max-width:1170px
+
+    
+
+
+
+
+
+
+
+  

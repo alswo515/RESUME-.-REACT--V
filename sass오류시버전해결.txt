@@ -1,0 +1,7 @@
+----------------sass 오류시 해결방법 --------------
+
+npm uninstall node-sass
+npm install node-sass@4.14.1
+
+기존에있는 css 확장자를 scss 로 변경해준다
+

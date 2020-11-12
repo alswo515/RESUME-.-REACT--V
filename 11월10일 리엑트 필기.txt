@@ -1,0 +1,192 @@
+11월 10일 리엑트 
+
+---------------jsx 에서 에밋을 활용할수있는방법-----------------------
+
+ 설정
+Window 이용자 : Ctrl + ,
+Mac 이용자 : Command + ,
+작업영역(WorkSpace setting)
+
+	언어 	값
+      javascript     javascriptreact
+
+이제 jsx 작성할 때, emmet을 이용할 수 있습니다!
+참고)https://velog.io/@jayjay28/VScode-React-emmet-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0
+
+	
+----------------------------props------------------------------------- 
+
+props 는 상위 컴포넌트에서 하위컴포넌트를 관여할떄 변수와 비슷하게 사용된다
+
+예)  부모컴포넌트
+	function App(){
+	return(  
+	<subject name="Web" desc="World wude Web!"/>
+	//여기서 컴포넌트는 name   이고 컴포넌트 값은 Web 이된다
+	<Toc />
+	)
+	}
+
+    자식컴포넌트
+	function Subject(props) {
+ 	 const header_style = {
+	    textAlign : 'center'
+	  }
+	  return (
+	  <header style = {header_style}>
+	  <h1>{props.name}</h1>
+	//결과적으로 name 값은 Web 이된다
+	  {props.desc}
+	   </header>  
+	  );
+	}
+
+     이것도 동일하다
+	function Subject({name, desc}) {
+ 	 const header_style = {
+	    textAlign : 'center'
+	  }
+	  return (
+	    <header style = {header_style}>
+	      <h1>{name}</h1>
+	        {desc}
+	    </header>  
+	  );
+	}
+
+
+<subject name="Web" />
+여기서 name 값은 변수와 비슷하게 쓸수있다
+
+-----------------------클래스형 컴포넌트------------------------
+
+반드시 맨윗줄에 리엑트 ,{Component} 가 선언이 되어야한다
+import React, {Component} from "react";
+
+기본형식)   
+class 사용자이름 extends Component{
+	render(){
+	return(
+	{this.props.props이름}
+	);
+	}
+}
+
+예제)
+class 사용자정의이름 extends Component {
+	render(){
+	return(
+		<>
+		 <p style={{
+            		    color:'red',
+	                backgroundColor:'lime'
+		            }}>
+	                {this.props.name}
+		            </p>
+	            <p>{this.props.quest}</p>
+		</>
+			);
+		}
+	}
+
+--------------------------- map() 너무너무 중요한 접근법-------------------------
+
+배열 변수를 선택한후 함수형으로 만들어주는 메소드 map()
+이때 배열값은 함수의 매개변수가 같게된다
+
+	var a = [1,2,3,4]
+	var b = a.map(function(data){	//data가 변수 a의 배열값을 같게된다
+  	 var c = data*2;
+ 	   return c;
+	})
+console.log(b) 실행한 결과문
+b= [2, 4, 6, 8];
+a= [1,2,3,4];	
+
+예시
+
+App.js
+class App extends Component {
+  render(){
+    const bread = [
+        {
+          name:'꿀호떡',
+          image : 'https://www.ediya.com/files/menu/IMG_1603093365707.png'
+        },
+        {
+          name:'아이스크림 호떡',
+          image : 'https://www.ediya.com/files/menu/IMG_1603093603807.png'
+        },
+        {
+          name:'수플레 치즈 케이크',
+          image : 'https://www.ediya.com/files/menu/IMG_1527144123168.png'
+        },
+        {
+          name:'데블스 초코 케이크',
+          image : 'https://www.ediya.com/files/menu/IMG_1527144173411.png'
+        },
+        {
+          name:'햄앤치즈샌드위치',
+          image : 'https://www.ediya.com/files/menu/IMG_1597389154897.png'
+        },
+        {
+          name:'떠먹는 티라미수',
+          image : 'https://www.ediya.com/files/menu/IMG_1564373464458.png'
+        },
+        {
+          name:'떠먹는 롤케익(플레인)',
+          image : 'https://www.ediya.com/files/menu/IMG_1565080681417.png'
+        },
+        {
+          name:'떠먹는 롤케익(초코)',
+          image : 'https://www.ediya.com/files/menu/IMG_1565080697667.png'
+        }
+      ] 
+      //브래드 배열을 접근
+    return(
+      <div className ="MenuList">
+        <h1>이디야 베이커리</h1>
+        <ul>
+          {
+            bread.map(function(abc){// map 메소드를 사용해서 배열에 접근   //데이터값은 abc가 갖게된다
+              <Menu name = {abc.name} picture={abc.image} />		//데이터값.데이터이름 을 props 를 사용해서 접근한다
+            })
+          }          
+        </ul>
+      </div>
+    )
+  }
+}
+
+Menu.js
+
+class Menu extends Component{
+    render(){
+        //종료태그 없는 태그 (img) 는 꼭 / 붙여주기!
+        return(
+            <li>
+                <img scr={this.props.picture} alt={this.props.name} />   //props로 접근한다
+                <sapn>{this.props.name}</sapn>
+            </li>
+        );
+    }
+}
+
+-------------------------------yarn.add.scss-------------------------
+터미널에서 파일접근 >> yarn add node-sass 입력 >> 리엑트문 위에 import './*.scss'
+
+
+
+
+
+----------------------------------------크롬 확장프로그램 다운 react developer Tools 다운----------------
+확장프로그램으로 개발자도구로 리액트 component 를 확인할수있다
+
+
+
+
+
+
+
+
+

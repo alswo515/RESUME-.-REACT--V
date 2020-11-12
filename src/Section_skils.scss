@@ -1,0 +1,162 @@
+.section{
+    background: #efefef;
+    padding-top: 150px;
+    .skillContainer {
+        height: 100%;
+        position: relative;
+        p {
+            font-size: 20px;
+            font-weight: bold;
+            text-align: right;
+          }
+          div {
+            width: 60%;
+            margin: 10px auto;
+            /* border: 1px solid #000; */
+          }
+          .score {
+            display: inline-block;
+            height: 20px;
+            width: 100%;
+            /* background: red; */
+            position: relative;
+          }
+          .myscore {
+            /* height: 0%; */
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            color: #000;
+            p:nth-child(2) {
+                position: absolute;
+                left: 10px;
+                top: 2px;
+                color: #000;
+                font-size: 16px;
+              }
+              
+          }
+          .html{
+            background: red;
+            box-shadow: teal 3px 3px 3px;
+            border-right: 10px solid transparent;
+            animation: htmlscore 1s both;
+            position: absolute;
+            top: 40px;
+            left: 0;
+          }
+          .css{
+            background: blue;
+            box-shadow: teal 3px 3px 3px;
+            border-right: 10px solid transparent;
+            animation: cssscore 1s both 0.5s;
+            position: absolute;
+            top: 100px;
+            left: 0;
+          }
+          .js{
+            background: yellow;
+            box-shadow: teal 3px 3px 3px;
+            border-right: 10px solid transparent;
+            animation: jsscore 1s both 1s;
+            position: absolute;
+            top: 160px;
+            left: 0;
+          }
+          .jq{
+            background: orange;
+            box-shadow: teal 3px 3px 3px;
+            border-right: 10px solid transparent;
+            animation: jqscore 1s both 1.5s;
+            position: absolute;
+            top: 220px;
+            left: 0;
+          }
+          .react{
+            background: skyblue;
+            box-shadow: teal 3px 3px 3px;
+            animation: reactscore 1s both 2s;
+            position: absolute;
+            top: 280px;
+            left: 0;
+          }
+      }
+      
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@keyframes htmlscore {
+    0% {
+      width: 0%;
+    }
+  
+    100% {
+      width: 90%;
+      opacity: 1;
+    }
+  }
+  
+  @keyframes cssscore {
+    0% {
+      width: 0%;
+    }
+  
+    100% {
+      width: 80%;
+      opacity: 1;
+    }
+  }
+  
+  @keyframes jsscore {
+    0% {
+      width: 0%;
+    }
+  
+    100% {
+      width: 70%;
+      opacity: 1;
+    }
+  }
+  
+  @keyframes jqscore {
+    0% {
+      width: 0%;
+    }
+  
+    100% {
+      width: 60%;
+      opacity: 1;
+    }
+  }
+  
+  @keyframes reactscore {
+    0% {
+      width: 0%;
+    }
+    100% {
+        width: 50%;
+        opacity: 1;
+      }
+    }

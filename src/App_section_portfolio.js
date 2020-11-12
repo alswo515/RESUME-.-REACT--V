@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-
+import './Section_portfolio.scss'
 
 
 class App_section_portfolio extends Component{

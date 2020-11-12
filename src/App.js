@@ -5,19 +5,13 @@ import App_header from './App_header';
 import App_section_slide from './App_section_slide'
 import App_section_portfolio from './App_section_portfolio';
 import App_section_skils from './App_section_skils'
+import App_section_contact from './App_section_contact'
+// import App_footer from './App_footer'
 
 class App extends Component{
   render(){
 
-    class App_top extends Component {
-      render(){
-        return(
-          <div className="gotop">
-            <img src="images/ico_totop_mo.png" alt="맨위로"/>
-          </div>
-        );
-      }
-    }
+
 
     const slide = [
         {
@@ -48,7 +42,8 @@ class App extends Component{
 
           <App_section_portfolio />
           <App_section_skils />
-          <App_top />
+          <App_section_contact />
+          {/* <App_footer/> */}
     </body>
     );
   }

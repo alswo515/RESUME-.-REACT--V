@@ -1,0 +1,347 @@
+@charset "utf-8";
+@import url("https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap");
+
+body,html,#wrap{
+    height: 100%;
+}
+
+.row {
+max-width: 1200px;
+margin: 0 auto;
+padding: 0 10px;
+}
+
+.header-outer {
+background: rgba(0, 0, 0, 0.5);
+position: fixed;
+width: 100%;
+z-index: 99999;
+transition: all 0.5s;
+}
+
+#header {
+    position: relative;
+    height: 116px;
+     h1 {
+        font-size: 30px;
+        color: #fff;
+        padding-top: 35px;
+        font-family: "Do Hyeon", sans-serif;
+      }
+       .open-gnb {
+        display: none;
+      }
+      .nav {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+        .depth1{
+
+            li {
+                display: inline-block;
+                a {
+                    font-size: 18px;
+                    color: #fff;
+                    padding: 0px 30px;
+                  }
+                  a:hover {
+                    display: inline-block;
+                    transform: scale(1.2);
+                    transition: all 0.5s;
+                  }
+              }
+              li.on{
+                a {
+                    transform: scale(1.2);
+                    display: inline-block;
+              }
+        }
+      }
+  }
+}
+.outlayer {
+    display: none;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+  }
+  .outlayer.on {
+    display: block;
+  }
+  
+
+  //섹션
+  .section-outer {
+    height: 100%;
+    .section {
+        height: 100%;
+
+        .slide:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.5);
+          }
+      }
+    .section:nth-child(1) {
+
+        .slide-outer {
+            height: 100%;
+            position: relative;
+
+            .marrow {
+                font-size: 80px;
+                color: #fff;
+                opacity: 0.5;
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                background: none;
+              }
+              .prevArrow {
+                left: 10%;
+                z-index: 999;
+              }
+              .nextArrow {
+                right: 10%;
+              }
+              .slick-dots {
+                position: absolute;
+                bottom: 20px;
+                width: 100%;
+                text-align: center;
+                li {
+                    display: inline-block;
+                    width: 100px;
+                    height: 3px;
+                    background: #777;
+                    margin: 0 5px;
+                    position: relative;
+
+                    button {
+                        width: 0%;
+                        height: 3px;
+                        background: #777;
+                        text-indent: -99999px;
+                        overflow: hidden;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                      }
+                  }
+                  li.slick-active{
+                    button {
+                        background: #000;
+                        animation: progressbar 4.5s both;
+                      }
+                      
+                  }
+              }
+              .plpa {
+                font-size: 15px;
+                color: #fff;
+                background: none;
+                position: absolute;
+                bottom: 17.5px;
+                left: 50%;
+                margin-left: 180px;
+              }
+          }
+          .slide-inner {
+            height: 100%;
+          }
+          .slide {
+            height: 100%;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            position: relative;
+
+            .text {
+                position: absolute;
+                right: 5%;
+                width: 45%;
+                text-align: center;
+                top: 30%;
+                height: 100%;
+                color: #fff;
+                opacity: 0;
+
+                p:nth-child(1) {
+                    font-size: 3.75vw;
+                    color: #fff;
+                    text-shadow: 2px 2px 5px #f00;
+                    padding-bottom: 10px;
+                    max-width: 600px;
+                    /* margin: 0 auto; */
+                    color: #00dd76;
+                  }
+                  p:nth-child(2) {
+                    font-size: 20px;
+                    margin-top: 20px;
+                    letter-spacing: 6px;
+                    color: mediumspringgreen;
+                  }
+
+              }
+          }
+
+          .slide.slick-active{
+            .text {
+                opacity: 1;
+              }
+          }
+
+          .slide1 {
+            background: blue;
+
+            div{
+                img {
+                    width: 300px;
+                    border-radius: 100px;
+                    position: absolute;
+                    top: 20%;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    z-index: 9999;
+                  }
+            }
+            .bag {
+                width: 500px;
+                height: 2000px;
+                background-color: mediumspringgreen;
+                position: absolute;
+                left: 50%;
+                top: -100px;
+                transform: translateX(-50%);
+                border-radius: 50px;
+              }
+              .bir {
+                display: inline-block;
+                color: #fff;
+                .myporfill {
+                    position: absolute;
+                    left: 22%;
+                    top: 20%;
+                    h3 {
+                        font-weight: bold;
+                        color: #00dd76;
+                        font-size: 15px;
+                        padding-bottom: 5px;
+                      }
+                      p:nth-child(2) {
+                        font-size: 15px;
+                        color: #68e9ad;
+                      }
+                      p:nth-child(3) {
+                        font-size: 15px;
+                        color: #68e9ad;
+                      }
+                      p:nth-child(4) {
+                        font-size: 15px;
+                        color: #68e9ad;
+                      }
+                  }
+                  .dream {
+                    position: absolute;
+                    right: 0%;
+                    top: 30%;
+
+                    p:nth-child(1) {
+                        margin: 0 auto;
+                        width: 25%;
+                        font-weight: bold;
+                        color: #00dd76;
+                        text-shadow: 3px 3px 3px #000;
+                        font-size: 18px;
+                        padding-bottom: 5px;
+                      }
+                      p:nth-child(2) {
+                        margin: 0 auto;
+                        width: 25%;
+                        font-size: 15px;
+                        color: #68e9ad;
+                      }
+                  }
+                  .education {
+                    position: absolute;
+                    right: 0%;
+                    margin: 0 auto;
+                    width: 25%;
+                    top: 70%;
+                    h3 {
+                        font-weight: bold;
+                        color: #00dd76;
+                        font-size: 15px;
+                        padding-bottom: 5px;
+                      }
+                      p:nth-child(2) {
+                        font-size: 15px;
+                        color: #68e9ad;
+                      }
+                      p:nth-child(3) {
+                        font-size: 15px;
+                        color: #68e9ad;
+                      }
+                  }
+                  .adrees {
+                    position: absolute;
+                    left: 15%;
+                    top: 60%;
+                    h3 {
+                        font-weight: bold;
+                        color: #00dd76;
+                        font-size: 15px;
+                        padding-bottom: 5px;
+                      }
+                      p:nth-child(2) {
+                        font-size: 15px;
+                        color: #68e9ad;
+                      }
+                      p:nth-child(1) {
+                        animation: fadeIn 1s both 0.2s;
+                      }
+                      p:nth-child(2) {
+                        /* animation: bounceInUp 1s both 1s */
+                        animation: fadeIn 1s both 0.5s;
+                      }
+                      p:nth-child(3) {
+                        /* animation: fadeInRight 1s both 1.5s */
+                        animation: fadeIn 1s both 1s;
+                      }
+                  }
+              }
+          }
+
+          .slide2 {
+            background-repeat: no-repeat;
+            background-position: center;
+          }
+
+          .slide3 {
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+          }
+
+      }
+  }
+
+
+  @keyframes progressbar {
+    0% {
+      width: 0%;
+    }
+  
+    100% {
+      width: 100%;
+    }
+  }

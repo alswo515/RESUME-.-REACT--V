@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-
+import './Section_contact.scss'
 
 
 class App_section_contact extends Component{
